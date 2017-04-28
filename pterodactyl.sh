@@ -108,12 +108,11 @@ npm install --only=production
 cp $START_DIR/wings.service /etc/systemd/system
 systemctl daemon-reload
 systemctl enable wings
-systemctl start wings
 
 cd /var/www/html/pterodactyl
 echo "Please setup your user account"
 php artisan pterodactyl:user
 
 echo "All done! Here's the pterodb password, in case you need it: $RANDOMPASSWORD"
-
-
+echo "Please setup a location and node in the panel on $URL, and copy the config to /srv/daemon/config/core.json."
+echo "Then, run 'service wings start' to start the daemon."
