@@ -1,6 +1,8 @@
 #!/bin/bash
 # Made by ajthemacboy
 
+START_DIR=`pwd`
+
 # Artisan Environment options
 MYSQL_ROOT_PASS=""
 DBHOST="localhost"
@@ -69,14 +71,14 @@ apt-get install -y supervisor
 systemctl enable supervisor
 service supervisor start
 
-cp /root/pterodactyl-worker.conf /etc/supervisor/conf.d/
+cp $START_DIR/pterodactyl-worker.conf /etc/supervisor/conf.d/
 
 sudo supervisorctl reread
 sudo supervisorctl update
 
 sudo supervisorctl start pterodactyl-worker:*
 
-cp /root/pterodactyl.conf /etc/nginx/sites-available/
+cp $START_DIR/pterodactyl.conf /etc/nginx/sites-available/
 
 ln -s /etc/nginx/sites-available/pterodactyl.conf /etc/nginx/sites-enabled/pterodactyl.conf
 
@@ -103,7 +105,7 @@ tar --strip-components=1 -xzvf v0.4.0-beta.1.1.tar.gz
 
 npm install --only=production
 
-cp /root/wings.service /etc/systemd/system
+cp $START_DIR/wings.service /etc/systemd/system
 systemctl daemon-reload
 systemctl enable wings
 systemctl start wings
