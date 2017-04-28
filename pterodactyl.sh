@@ -51,7 +51,7 @@ php artisan key:generate --force
 echo "CREATE USER '$DBUSER'@'$DBHOST' IDENTIFIED BY '$RANDOMPASSWORD';" > /tmp/mysqlscript.txt
 echo "CREATE DATABASE $DBNAME;" >> /tmp/mysqlscript.txt
 echo "USE $DBNAME;" >> /tmp/mysqlscript.txt
-echo "GRANT ALL PRIVILEGES ON *.* TO 'pterouser'@'$DBHOST' WITH GRANT OPTION;" >> /tmp/mysqlscript.txt
+echo "GRANT ALL PRIVILEGES ON *.* TO '$DBUSER'@'$DBHOST' WITH GRANT OPTION;" >> /tmp/mysqlscript.txt
 echo "FLUSH PRIVILEGES;" >> /tmp/mysqlscript.txt
 
 mysql --user=root --password=$MYSQL_ROOT_PASS < /tmp/mysqlscript.txt
