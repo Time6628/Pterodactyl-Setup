@@ -95,7 +95,7 @@ echo "Beginning daemon setup"
 
 apt install -y linux-image-extra-$(uname -r) linux-image-extra-virtual
 
-apt install -y docker.io
+curl -sSL https://get.docker.com/ | sh
 systemctl enable docker
 
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
