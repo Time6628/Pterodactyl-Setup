@@ -22,6 +22,10 @@ EMAIL_NAME="Pterodactyl Panel"
 
 RANDOMPASSWORD=`date +%s | sha256sum | base64 | head -c 24 ; echo`
 
+# Set timezone - only needed for running in LXC
+rm -f /etc/localtime
+cp /usr/share/zoneinfo/$TIMEZONE /etc/localtime
+
 # Add additional PHP packages.
 add-apt-repository -y ppa:ondrej/php
 
