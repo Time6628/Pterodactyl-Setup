@@ -38,8 +38,8 @@ apt-get -y install php7.0 php7.0-cli php7.0-gd php7.0-mysql php7.0-pdo php7.0-mb
 mkdir -p /var/www/html/pterodactyl
 cd /var/www/html/pterodactyl
 
-curl -Lo v0.6.0-beta.2.1.tar.gz https://github.com/Pterodactyl/Panel/archive/v0.6.0-beta.2.1.tar.gz
-tar --strip-components=1 -xzvf v0.6.0-beta.2.1.tar.gz
+curl -Lo v0.6.0.tar.gz https://github.com/Pterodactyl/Panel/archive/v0.6.0.tar.gz
+tar --strip-components=1 -xzvfv0.6.0.tar.gz
 chmod -R 755 storage/* bootstrap/cache
 
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
@@ -104,8 +104,8 @@ apt install -y nodejs tar unzip make gcc g++ python-minimal
 mkdir -p /srv/daemon /srv/daemon-data
 cd /srv/daemon
 
-curl -Lo v0.4.0-beta.1.1.tar.gz https://github.com/Pterodactyl/Daemon/archive/v0.4.0-beta.1.1.tar.gz
-tar --strip-components=1 -xzvf v0.4.0-beta.1.1.tar.gz
+curl -Lo v0.4.0.tar.gz https://github.com/Pterodactyl/Daemon/archive/v0.4.0.tar.gz
+tar --strip-components=1 -xzvf v0.4.0.tar.gz
 
 npm install --only=production
 
